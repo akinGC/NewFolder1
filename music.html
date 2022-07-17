@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <link rel="stylesheet" href="music.css">
+</head>
+<body>
+    <div class="whole">
+        <nav class="navBar">Item Lister</nav>
+        <div class="frstbx">
+            <fieldset class="fieldset">
+            <legend><label for="name" class="add"><b>Add Items</b></label></legend>
+            <div class="inptbox">
+                <input type="text"class="nameitm"value="" name="name">
+                <button class="btn" onclick="zig()">Submit</button>
+            </div>
+        </fieldset>
+            <label for="Items">Items</label>
+            <div class="itemsbx" name="Items">
+
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    const zig=()=>{
+      let itmecnt=document.getElementsByClassName("nameitm")[0].value;
+      let item=document.createElement("div");
+      item.innerText=itmecnt;
+      item.style.border="1px solid black"
+      item.style.marginBottom="2px"
+      item.style.width="50vw"
+      let itmbox=document.getElementsByClassName("itemsbx")[0];
+      itmbox.appendChild(item);
+
+        
+    }
+</script>
+</html>
