@@ -24,21 +24,23 @@
     <ul id="items" class="list-group">
       <li class="list-group-item">Item 1</li>
       <li class="list-group-item">Item 2</li>
-      <li class="list-group-item item3">Item 3</li>
+      <li class="list-group-item">Item 3</li>
       <li class="list-group-item">Item 4</li>
+      <li class="list-group-item items5">Item 5</li>
     </ul>
    </div>
   </div>
 
 </body>
 <style>
-    .item3{
-        background-color: green;
-    }
-    .list-group-item{
-        font-weight: bold;
-        color: red;
-    }
-
+  .items5{
+    list-style-type: none;
+  }
 </style>
+<script>
+  let item5=document.getElementsByClassName("items5")[0];
+  item5.style.color="red";
+  let arr=document.getElementsByTagName("li");
+  arr[4].style.paddingLeft="5vw"
+</script>
 </html>
