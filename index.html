@@ -26,21 +26,17 @@
       <li class="list-group-item">Item 2</li>
       <li class="list-group-item">Item 3</li>
       <li class="list-group-item">Item 4</li>
-      <li class="list-group-item items5">Item 5</li>
     </ul>
    </div>
   </div>
 
 </body>
-<style>
-  .items5{
-    list-style-type: none;
-  }
-</style>
+
 <script>
-  let item5=document.getElementsByClassName("items5")[0];
-  item5.style.color="red";
-  let arr=document.getElementsByTagName("li");
-  arr[4].style.paddingLeft="5vw"
+  let list = document.querySelectorAll(".list-group-item");
+  list[2].style.backgroundColor="green";
+  for(let i=0;i<list.length;i++){
+    (i%2!=0)?list[i].style.backgroundColor="white":list[i].style.backgroundColor="green";
+  }
 </script>
 </html>
