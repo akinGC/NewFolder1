@@ -21,22 +21,34 @@
       <input type="submit" class="btn btn-dark" value="Submit">
     </form>
     <h2 class="title">Items</h2>
-    <ul id="items" class="list-group">
-      <li class="list-group-item">Item 1</li>
-      <li class="list-group-item">Item 2</li>
-      <li class="list-group-item">Item 3</li>
-      <li class="list-group-item">Item 4</li>
-    </ul>
+    <ul id="items" class="list-group"><li class="list-group-item">Item 1</li><li class="list-group-item">Item 2</li><li class="list-group-item">Item 3</li><li class="list-group-item">Item 4</li></ul>
    </div>
   </div>
 
 </body>
-
 <script>
-  let list = document.querySelectorAll(".list-group-item");
-  list[2].style.backgroundColor="green";
-  for(let i=0;i<list.length;i++){
-    (i%2!=0)?list[i].style.backgroundColor="white":list[i].style.backgroundColor="green";
-  }
+  
+  document.getElementsByClassName("list-group-item")[0].parentElement.style.border="1px solid red";
+  document.getElementsByClassName("list-group")[0].lastElementChild.style.color="blue"
+  document.getElementById("items").parentElement.lastElementChild.lastChild.style.paddingLeft="3vw"
+
+let nwList = document.createElement("li");
+nwList.setAttribute("class","newList");
+nwList.innerText=document.getElementById("items").firstChild.innerText;
+nwList.style.listStyleType="none"
+document.getElementById("items").appendChild(nwList)
+document.getElementById("items").firstElementChild.style.color="green"
+document.getElementsByClassName("list-group-item")[0].nextSibling.innerText="Aston Martin"
+document.getElementsByClassName("list-group-item")[0].nextElementSibling.style.color="violet"
+document.getElementsByClassName("list-group-item")[0].nextSibling.previousSibling.innerText="Audi"
+document.getElementsByClassName("list-group-item")[0].nextElementSibling.previousElementSibling.style.color="orange"
+
+let scnditem=document.createElement("li")
+scnditem.appendChild(document.createTextNode("hello hai"));
+scnditem.style.listStyleType="none"
+document.getElementById("items").appendChild(scnditem)
+
+
+
 </script>
 </html>
