@@ -20,6 +20,7 @@
     <input type="button" class="inpbtn" value="Submit">
   </div>
   <div class="yui">
+    <h1>registered Users</h1>
     
   </div>
 </body>
@@ -55,18 +56,43 @@
 </style>
 
 <script>
+  let id=1;
   let btn=document.getElementsByClassName("inpbtn")[0];
   btn.addEventListener("click",(e)=>{
-    let obj={
+    let obj=[{
     names:document.getElementsByClassName("inptxt")[0].value,
     mails:document.getElementsByClassName("inpmail")[0].value
+  }]
+
+
+
+
+ let add={
+  names:"akins",
+  mails:"akins@gmail.com"
+ }
+
+
+localStorage.setItem(`objs${id}`,JSON.stringify(obj[0]))
+id++;
+
+
+  })
+
+  window.addEventListener("DOMContentLoaded",(e)=>{
+    for(let i=1;i<Infinity;i++){
+  let objhere=JSON.parse(localStorage.getItem(`objs${i}`))
+  if(objhere==null){
+ 
+    break;
   }
-    localStorage.setItem("objs",JSON.stringify(obj));
- let objj=localStorage.getItem("objs");
- let object=JSON.parse(objj)
- let ele=document.createElement("div");
- ele.innerHTML=`${object.names} : ${object.mails}`
+  else{
+    console.log(objhere.names)
+    let ele=document.createElement("div");
+ ele.innerHTML=`${objhere.names} : ${objhere.mails}`
  document.getElementsByClassName("yui")[0].appendChild(ele);
+  }
+}
   })
 </script>
 </html>
