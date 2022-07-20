@@ -87,10 +87,40 @@ id++;
     break;
   }
   else{
-    console.log(objhere.names)
+   
     let ele=document.createElement("div");
  ele.innerHTML=`${objhere.names} : ${objhere.mails}`
+ ele.className=`objs${i}`
+
+ let newcr = document.createElement("button")
+ newcr.appendChild(document.createTextNode("x"));
+
+ let newedt = document.createElement("button");
+ newedt.innerText="Edit";
+ newedt.style.marginRight="1vw"
+ newedt.style.marginLeft="1vw"
+
+ ele.appendChild(newedt)
+ ele.appendChild(newcr)
+
+newedt.addEventListener("click",(e)=>{
+  console.log(e.target.parentElement.className);
+
+  let obj={
+    names:document.getElementsByClassName("inptxt")[0].value,
+    mails:document.getElementsByClassName("inpmail")[0].value
+  }
+  localStorage.setItem(e.target.parentElement.className,JSON.stringify(obj))
+
+})
+
+newcr.addEventListener("click",(e)=>{
+  console.log(e.target.parentElement.className)
+  localStorage.removeItem(`${e.target.parentElement.className}`)
+  document.getElementsByClassName("yui")[0].removeChild(newcr.parentElement)
+})
  document.getElementsByClassName("yui")[0].appendChild(ele);
+ 
   }
 }
   })
