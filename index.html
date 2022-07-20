@@ -19,11 +19,16 @@
     </div>
     <input type="button" class="inpbtn" value="Submit">
   </div>
+  <div class="yui">
+    
+  </div>
 </body>
 <style>
   body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   .container{
     border: 1px solid black;
@@ -44,15 +49,24 @@
   .inpbtn:active{
     transform: scale(1.01);
   }
+  .yui{
+    margin-top: 5vh;
+  }
 </style>
 
 <script>
-  let name=document.getElementsByClassName("inptxt")[0].value;
-  let mail=document.getElementsByClassName("inpmail")[0].value;
   let btn=document.getElementsByClassName("inpbtn")[0];
   btn.addEventListener("click",(e)=>{
-    localStorage.setItem("name",document.getElementsByClassName("inptxt")[0].value);
-    localStorage.setItem("email",document.getElementsByClassName("inpmail")[0].value)
+    let obj={
+    names:document.getElementsByClassName("inptxt")[0].value,
+    mails:document.getElementsByClassName("inpmail")[0].value
+  }
+    localStorage.setItem("objs",JSON.stringify(obj));
+ let objj=localStorage.getItem("objs");
+ let object=JSON.parse(objj)
+ let ele=document.createElement("div");
+ ele.innerHTML=`${object.names} : ${object.mails}`
+ document.getElementsByClassName("yui")[0].appendChild(ele);
   })
 </script>
 </html>
