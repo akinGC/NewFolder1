@@ -23,6 +23,10 @@
     <h1>registered Users</h1>
     
   </div>
+  <div class="getuser">Get Users</div>     
+  <div class="listings">
+
+  </div>
 </body>
 <style>
   body{
@@ -53,76 +57,34 @@
   .yui{
     margin-top: 5vh;
   }
+  .getuser{
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .getuser:active{
+    transform: scale(1.1);
+  }
+  .listings{
+
+    height: 40vh;
+    width: 50vw;
+    margin-top: 5vh;
+  }
+  .listings > li{
+    list-style: none;
+    border: 1px solid grey;
+    text-align: center;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    color: green;
+  }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="Axios.js">
 
-<script>
-  let id=1;
-  let btn=document.getElementsByClassName("inpbtn")[0];
-  btn.addEventListener("click",(e)=>{
-    let obj=[{
-    names:document.getElementsByClassName("inptxt")[0].value,
-    mails:document.getElementsByClassName("inpmail")[0].value
-  }]
-
-
-
-
- let add={
-  names:"akins",
-  mails:"akins@gmail.com"
- }
-
-
-localStorage.setItem(`objs${id}`,JSON.stringify(obj[0]))
-id++;
-
-
-  })
-
-  window.addEventListener("DOMContentLoaded",(e)=>{
-    for(let i=1;i<Infinity;i++){
-  let objhere=JSON.parse(localStorage.getItem(`objs${i}`))
-  if(objhere==null){
- 
-    break;
-  }
-  else{
-   
-    let ele=document.createElement("div");
- ele.innerHTML=`${objhere.names} : ${objhere.mails}`
- ele.className=`objs${i}`
-
- let newcr = document.createElement("button")
- newcr.appendChild(document.createTextNode("x"));
-
- let newedt = document.createElement("button");
- newedt.innerText="Edit";
- newedt.style.marginRight="1vw"
- newedt.style.marginLeft="1vw"
-
- ele.appendChild(newedt)
- ele.appendChild(newcr)
-
-newedt.addEventListener("click",(e)=>{
-  console.log(e.target.parentElement.className);
-
-  let obj={
-    names:document.getElementsByClassName("inptxt")[0].value,
-    mails:document.getElementsByClassName("inpmail")[0].value
-  }
-  localStorage.setItem(e.target.parentElement.className,JSON.stringify(obj))
-
-})
-
-newcr.addEventListener("click",(e)=>{
-  console.log(e.target.parentElement.className)
-  localStorage.removeItem(`${e.target.parentElement.className}`)
-  document.getElementsByClassName("yui")[0].removeChild(newcr.parentElement)
-})
- document.getElementsByClassName("yui")[0].appendChild(ele);
- 
-  }
-}
-  })
 </script>
 </html>
