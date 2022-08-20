@@ -20,11 +20,25 @@ document.getElementsByClassName("getuser")[0].addEventListener("click",()=>{
         myNode.removeChild(   document.getElementsByClassName("listings")[0].lastElementChild);
       }
    axios.get("https://crudcrud.com/api/a3ba7f192d014601b08c17212924ca8a/names").then(function(response){
-     console.log(response.data[0].name)
-   response.data.forEach(element => {
+     console.log(response.data)
+    
+ response.data.forEach(element => {
     let lis = document.createElement('li')
+    lis.id=element._id
+    let del = document.createElement('button')
+    del.innerText = 'DEL'
     lis.innerHTML=`<p>name : ${element.name} <p> email : ${element.email}</p></p>`
+    lis.appendChild(del)
        document.getElementsByClassName("listings")[0].appendChild(lis)
+       del.addEventListener("click",()=>{
+        del.parentElement.remove();
+        axios.delete(`https://crudcrud.com/api/a3ba7f192d014601b08c17212924ca8a/names/${del.parentElement.id}`)
+    
+    })
+
    });
+
+
+
    })
 })
