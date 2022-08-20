@@ -13,7 +13,7 @@ win.addEventListener("click",()=>{
     })
 
 })
-  
+    
 document.getElementsByClassName("getuser")[0].addEventListener("click",()=>{
  
     while (   document.getElementsByClassName("listings")[0].lastElementChild) {
