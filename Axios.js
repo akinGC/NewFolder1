@@ -7,7 +7,7 @@ win.addEventListener("click",()=>{
         email:document.getElementsByClassName("inpmail")[0].value
     })
     .then(function (response) {
-        document.getElementsByClassName("inptxt")[0].value=''
+        document.getElementsByClassName("inptxt")[0].value=''  
         document.getElementsByClassName("inpmail")[0].value=''
         // do whatever you want if console is [object object] then stringify the response
     })
